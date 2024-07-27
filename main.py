@@ -1,4 +1,5 @@
 import platform
+import admin_privileges_manager
 from hosts_file_manager import HostsFileManager
 from blocked_sites_manager import BlockedSitesManager
 
@@ -18,6 +19,10 @@ def main():
 
     hosts_manager = HostsFileManager(HOSTS_FILE_PATH)
     sites_manager = BlockedSitesManager(SENTENCES_FILE_PATH)
+
+    # run as admin
+    # TODO save preferences system. Make user accept to run in admin prior
+    admin_privileges_manager.run_as_admin_windows()
 
     choice = -1
     while choice != 0:
