@@ -3,9 +3,28 @@ import admin_privileges_manager
 from hosts_file_manager import HostsFileManager
 from blocked_sites_manager import BlockedSitesManager
 
-# TODO Add function for running in admin mode
-# TODO Make links clickable and take you to that link
 # TODO Inform users about reloading search engine for it to work
+import keyboard     # TODO make this no_cheat_input a standalone file or something
+
+
+def no_cheat_input(prompt):
+    print(prompt, end='', flush=True)
+    # user_input = ''
+    paste_detected = False
+
+    def on_key_event(event):
+        nonlocal paste_detected
+        if event.name == 'v' and keyboard.is_pressed('ctrl'):
+            paste_detected = True
+
+    keyboard.hook(on_key_event)
+    user_input = input()  # Wait for Enter key press
+    keyboard.unhook_all()
+
+    if paste_detected:
+        print("\nPaste action detected! Please type the input manually.")
+        return None
+    return ''.join(user_input)
 
 
 def main():
@@ -13,7 +32,7 @@ def main():
     HOSTS_FILE_PATH = "/etc/hosts" if platform.system() != "Windows"\
         else r"C:\Windows\System32\drivers\etc\hosts"
     SENTENCES_FILE_PATH = "blocked_sites_sentences.json"
-    ADMIN_PASSWORD = "Zebbug2007"
+    ADMIN_PASSWORD = "ArigatouGozaimasu007"
     ADMIN_PROMISE = ("I promise that I am only deleting this site because of"
                      " a bug or issue that won't let me remove it normally.")
 
@@ -57,7 +76,7 @@ def main():
                 print(f"To unblock {site_to_unblock}, please enter the following sentences:")
                 for index, sentence in enumerate(sentences[site_to_unblock]):
                     print(f"\"{sentence}\"")
-                    user_input = input("Type sentence no " + str(index+1) + " exactly as shown: ")
+                    user_input = no_cheat_input("Type sentence no " + str(index+1) + " exactly as shown: ")
                     if not user_input == sentence:
                         unblock = False
                         break
