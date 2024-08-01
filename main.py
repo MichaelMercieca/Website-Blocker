@@ -2,7 +2,9 @@ import platform
 import admin_privileges_manager
 from hosts_file_manager import HostsFileManager
 from blocked_sites_manager import BlockedSitesManager
+import streak_counter
 
+# TODO make maths sums that the user has to work out to open sites
 # TODO Inform users about reloading search engine for it to work
 import keyboard     # TODO make this no_cheat_input a standalone file or something
 
@@ -43,6 +45,9 @@ def main():
     # TODO save preferences system. Make user accept to run in admin prior
     admin_privileges_manager.run_as_admin_windows()
 
+    # print counter
+    streak_counter.print_counter(16)
+
     choice = -1
     while choice != 0:
         print()
@@ -50,7 +55,8 @@ def main():
             '1. Block site\n'
             '2. Unblock site\n'
             '3. List blocked sites\n'
-            '4. ADMIN TOOLS\n'
+            '4. Show Streak'
+            '5. ADMIN TOOLS\n'
             '0. Quit\n'
             'Choose : '
         ))
