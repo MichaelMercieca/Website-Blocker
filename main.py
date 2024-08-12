@@ -43,10 +43,11 @@ def main():
 
     # run as admin
     # TODO save preferences system. Make user accept to run in admin prior
-    admin_privileges_manager.run_as_admin_windows()
+    # admin_privileges_manager.run_as_admin_windows()
 
     # print counter
-    streak_counter.print_counter(16)
+    counter = streak_counter.increment_streak()
+    print(counter)
 
     choice = -1
     while choice != 0:
