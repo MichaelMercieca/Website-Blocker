@@ -6,6 +6,8 @@ import tkinter as tk
 import time
 import threading
 
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 
 def check_duplicate_process():
     # Get the current script's name
@@ -47,8 +49,8 @@ def show_popup():
     )
     label.pack(expand=True)
 
-    # Wait for 12 seconds before showing the close button
-    popup.after(12000, lambda: show_close_button(popup))
+    # Wait for 15 seconds before showing the close button
+    popup.after(15000, lambda: show_close_button(popup))
 
     # Run the popup's main loop
     popup.mainloop()
@@ -62,8 +64,8 @@ def show_close_button(popup):
 
 def schedule_popup():
     while True:
-        # Wait for 8 minutes (480 seconds)
-        time.sleep(480)
+        # Wait for 7 minutes (420 seconds)
+        time.sleep(420)
         # Show the popup in the main thread
         root.after(0, show_popup)
 

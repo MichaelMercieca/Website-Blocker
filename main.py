@@ -43,11 +43,12 @@ def main():
 
     # run as admin
     # TODO save preferences system. Make user accept to run in admin prior
-    # admin_privileges_manager.run_as_admin_windows()
+    admin_privileges_manager.run_as_admin_windows()
 
-    # print counter
-    counter = streak_counter.increment_streak()
-    print(counter)
+    # TODO maybe fix counter system
+    # # print counter
+    # counter = streak_counter.increment_streak()
+    # print(counter)
 
     choice = -1
     while choice != 0:
@@ -56,8 +57,7 @@ def main():
             '1. Block site\n'
             '2. Unblock site\n'
             '3. List blocked sites\n'
-            '4. Show Streak'
-            '5. ADMIN TOOLS\n'
+            '4. ADMIN TOOLS\n'
             '0. Quit\n'
             'Choose : '
         ))
@@ -104,6 +104,11 @@ def main():
             print('Thank you for using the website blocker. It will help you stay focused.')
 
         elif choice == 4:
+
+            #TODO see how admin tools will work as to not cheat
+            print("Sorry but admin tools are unavailable for the moment!\n")
+            continue
+
             inp = input('Enter admin password: ')
             if inp == ADMIN_PASSWORD:
                 choice_admin = -1
