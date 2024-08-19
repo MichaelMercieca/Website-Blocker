@@ -40,9 +40,8 @@ def show_popup():
     # Create and place the label
     label = tk.Label(
         popup,
-        text="NO GUITAR, NO RELAXING, NO LAZING FOR A WEEK. REMEMBER YOUR ACTIONS. "
-             "LEARN AND ABSTAIN. FOCUS, AND USE THIS WEEK TO FOCUS ON YOUR ACTIONS "
-             "AND YOUR SHORTCOMINGS, AND IMPROVE.",
+        text="Stop to breath mindfully. If you are working, continue afterwards. "
+             "If you are distracted, come back to the present moment and realise you are meant for more.",
         font=("Helvetica", 24),
         wraplength=popup.winfo_screenwidth()
     )

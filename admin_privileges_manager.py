@@ -39,5 +39,3 @@ def run_as_admin_windows():
                 sys.exit(0)
     else:
         print("Administrative privilege escalation is only implemented for Windows.")
-        print("Press Enter to exit:")
-        input()
