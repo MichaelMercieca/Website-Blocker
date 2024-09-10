@@ -107,7 +107,7 @@ def main():
 
             #TODO see how admin tools will work as to not cheat
             print("Sorry but admin tools are unavailable for the moment!\n")
-            continue
+            # continue
 
             inp = input('Enter admin password: ')
             if inp == ADMIN_PASSWORD:
