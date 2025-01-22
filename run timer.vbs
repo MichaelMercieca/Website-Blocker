@@ -1,2 +1,2 @@
 Set objShell = CreateObject("WScript.Shell")
-objShell.Run "C:\Users\mmerc\source\Website-Blocker\run_    timer.bat", 0, False
+objShell.Run "C:\Users\mmerc\source\Website-Blocker\run_timer.bat", 0, False

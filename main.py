@@ -110,36 +110,6 @@ def main():
             print("Sorry but admin tools are unavailable for the moment!\n")
             # continue
 
-            inp = input('Enter admin password: ')
-            if inp == ADMIN_PASSWORD:
-                choice_admin = -1
-                while choice_admin != 0:
-                    print()
-                    choice_admin = int(input(
-                        'Admin Tools:\n'
-                        '1. Remove site without sentences\n'
-                        '0. Back\n'
-                        'Choice: '
-                    ))
-                    print()
-
-                    if choice_admin == 1:
-                        inp = input('Recite the promise to perform the action:\n'
-                                    + ADMIN_PROMISE + '\n->')
-                        site_to_unblock = input('Enter site to unblock: ')
-                        if inp == ADMIN_PROMISE:
-                            if hosts_manager.remove_entry(site_to_unblock):
-                                sites_manager.remove_site_from_sentences_dict(site_to_unblock)
-
-                    elif choice_admin == 0:
-                        print('\n********\n')
-                    else:
-                        print('Invalid input. Please try again.')
-            else:
-                print('Invalid admin password.')
-        else:
-            print('Invalid input. Please try again.')
-
 
 if __name__ == "__main__":
     main()
