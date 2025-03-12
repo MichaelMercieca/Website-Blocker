@@ -76,27 +76,27 @@ def main():
 
         elif choice == 2:
             break
-            # site_to_unblock = input('Type the site to unblock: ')
-            # sentences = sites_manager.load_sentences()
-            #
-            # if site_to_unblock in sentences:
-            #     unblock = True
-            #     print(f"To unblock {site_to_unblock}, please enter the following sentences:")
-            #     for index, sentence in enumerate(sentences[site_to_unblock]):
-            #         print(f"\"{sentence}\"")
-            #         user_input = no_cheat_input("Type sentence no " + str(index+1) + " exactly as shown: ")
-            #         if not user_input == sentence:
-            #             unblock = False
-            #             break
-            #
-            #     if unblock:
-            #         if hosts_manager.remove_entry(site_to_unblock):
-            #             sites_manager.remove_site_from_sentences_dict(site_to_unblock)
-            #             print(f"{site_to_unblock} has been unblocked.")
-            #     else:
-            #         print("Incorrect sentence. The site remains blocked.")
-            # else:
-            #     print(f"{site_to_unblock} is not currently blocked or no sentence is associated with it.")
+            site_to_unblock = input('Type the site to unblock: ')
+            sentences = sites_manager.load_sentences()
+
+            if site_to_unblock in sentences:
+                unblock = True
+                print(f"To unblock {site_to_unblock}, please enter the following sentences:")
+                for index, sentence in enumerate(sentences[site_to_unblock]):
+                    print(f"\"{sentence}\"")
+                    user_input = no_cheat_input("Type sentence no " + str(index+1) + " exactly as shown: ")
+                    if not user_input == sentence:
+                        unblock = False
+                        break
+
+                if unblock:
+                    if hosts_manager.remove_entry(site_to_unblock):
+                        sites_manager.remove_site_from_sentences_dict(site_to_unblock)
+                        print(f"{site_to_unblock} has been unblocked.")
+                else:
+                    print("Incorrect sentence. The site remains blocked.")
+            else:
+                print(f"{site_to_unblock} is not currently blocked or no sentence is associated with it.")
 
         elif choice == 3:
             sites_manager.list_sites(True)
@@ -110,6 +110,7 @@ def main():
             print("Sorry but admin tools are unavailable for the moment!\n")
             # continue
 
+           
 
 if __name__ == "__main__":
     main()
